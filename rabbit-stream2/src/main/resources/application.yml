@@ -1,0 +1,30 @@
+server:
+  port: 8087
+spring:
+  application:
+    name: stream-hello
+  rabbitmq:
+    host: 192.168.2.8
+    port: 11673
+    username: springcloud
+    password: 147.111X
+  cloud:
+    stream:
+      bindings:
+#        input:
+#          destination: blueinfinite_input
+#          group: email
+#        output:
+#          destination: blueinfinite_output
+#          group: email
+
+
+        blueinfinite_input:
+          destination: blueinfinite_output
+          group: msg
+        blueinfinite_output:
+          destination: blueinfinite_input
+          group: msg
+management:
+  security:
+    enabled: false
